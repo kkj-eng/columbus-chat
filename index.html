@@ -3,118 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Talk to Christopher Columbus</title>
+itle>Talk to Christopher Columbus</title>
 
   <style>
     * {
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
     }
 
     body {
-      margin: 0;
-      min-height: 100vh;
       font-family: Arial, Helvetica, sans-serif;
       color: #172033;
-      background:
-        radial-gradient(circle at top left, rgba(255, 255, 255, 0.7), transparent 35%),
-        #f4ead5;
+      background: #f4ead5;
     }
 
-    .page-header {
-      padding: 42px 20px 28px;
+    header {
+      padding: 42px 20px 26px;
       text-align: center;
     }
 
-    .page-header h1 {
+    h1 {
       margin: 0;
       color: #102f46;
-      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-size: clamp(2rem, 5vw, 3.4rem);
       line-height: 1.1;
     }
 
-    .page-header p {
-      max-width: 760px;
+    .subtitle {
+      max-width: 780px;
       margin: 16px auto 0;
       color: #34495e;
-      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      font-size: clamp(1rem, 2vw, 1.25rem);
       line-height: 1.6;
     }
 
-    .page-container {
+    main {
       width: min(1500px, calc(100% - 32px));
       margin: 0 auto;
-      padding-bottom: 30px;
+      padding-bottom: 28px;
     }
 
-    .instructions {
+    .task-box {
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 24px;
       align-items: center;
       margin-bottom: 20px;
-      padding: 22px 26px;
-      border: 1px solid rgba(22, 50, 79, 0.14);
+      padding: 20px 24px;
+      border: 1px solid #d5c8ae;
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.88);
-      box-shadow: 0 8px 24px rgba(22, 50, 79, 0.09);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 22px rgba(22, 50, 79, 0.1);
     }
 
-    .instructions h2 {
+    .task-box h2 {
       margin: 0 0 8px;
       color: #16324f;
       font-size: 1.35rem;
     }
 
-    .instructions p {
+    .task-box p {
       margin: 0;
       line-height: 1.6;
     }
 
-    .topic-list {
+    .topics {
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-end;
       gap: 8px;
-      max-width: 600px;
+      max-width: 620px;
     }
 
     .topic {
-      display: inline-block;
       padding: 8px 12px;
-      border: 1px solid #c9d9dd;
+      border: 1px solid #b9d2d7;
       border-radius: 999px;
-      color: #174d5c;
+      color: #164e5d;
       background: #edf7f8;
       font-size: 0.9rem;
-      font-weight: 700;
+      font-weight: bold;
     }
 
-    .chat-shell {
-      overflow: hidden;
-      min-height: 720px;
+    .chat-container {
+      width: 100%;
       height: 78vh;
+      min-height: 720px;
       max-height: 950px;
-      border: 4px solid #135c6c;
+      overflow: hidden;
+      border: 4px solid #105b6c;
       border-radius: 20px;
       background: #ffffff;
-      box-shadow: 0 16px 45px rgba(22, 50, 79, 0.22);
+      box-shadow: 0 16px 42px rgba(22, 50, 79, 0.22);
     }
 
     .chat-frame {
       display: block;
       width: 100%;
       height: 100%;
-      min-height: 720px;
       border: 0;
       background: #ffffff;
     }
 
-    .help-text {
+    .privacy-note {
       margin: 14px 4px 0;
       color: #536471;
       font-size: 0.9rem;
@@ -123,70 +119,62 @@
     }
 
     footer {
-      padding: 24px 20px 30px;
+      padding: 22px 20px 30px;
       color: #52616b;
       font-size: 0.9rem;
       text-align: center;
     }
 
     @media (max-width: 800px) {
-      .page-header {
-        padding-top: 28px;
+      header {
+        padding: 28px 16px 20px;
       }
 
-      .page-container {
-        width: min(100% - 18px, 1500px);
+      main {
+        width: calc(100% - 18px);
       }
 
-      .instructions {
+      .task-box {
         grid-template-columns: 1fr;
         padding: 18px;
       }
 
-      .topic-list {
+      .topics {
         justify-content: flex-start;
       }
 
-      .chat-shell {
-        min-height: 650px;
+      .chat-container {
         height: 80vh;
+        min-height: 620px;
         border-width: 3px;
         border-radius: 14px;
-      }
-
-      .chat-frame {
-        min-height: 650px;
       }
     }
   </style>
 </head>
 
 <body>
-
-  <header class="page-header">
+  <header>
     <h1>Talk to Christopher Columbus</h1>
 
-    <p>
+    <p class="subtitle">
       Practise English by interviewing Christopher Columbus.
-      Ask questions in English and explore his voyages, ships,
-      experiences and historical perspective.
+      Ask questions about his life, voyages and historical perspective.
     </p>
   </header>
 
-  <main class="page-container">
-
-    <section class="instructions" aria-labelledby="task-heading">
+  <main>
+    <section class="task-box">
       <div>
-        <h2 id="task-heading">Your interview task</h2>
+        <h2>Your interview task</h2>
 
         <p>
-          Ask at least 10 questions. Listen carefully to the answers,
-          and remember that Christopher Columbus speaks from his own
-          historical perspective.
+          Ask at least 10 questions in English. Remember that Christopher
+          Columbus answers from his own historical perspective.
         </p>
       </div>
 
-      <div class="topic-list" aria-label="Suggested topics">
+      <div class="topics" aria-label="Suggested topics">
         <span class="topic">Voyages</span>
         <span class="topic">Ships</span>
         <span class="topic">Navigation</span>
@@ -196,23 +184,19 @@
       </div>
     </section>
 
-    <section class="chat-shell" aria-label="Chat with Christopher Columbus">
-
-      <!DOCTYPE html><html style="height: 100%;"><body style="height: 100%; margin: 0;"><iframe src="https://copilotstudio.microsoft.com/environments/Default-d3fcb89c-9e3b-4533-a07d-fcd5dd8e7a79/bots/cre4e_talktochristophercolumbus_SXJnOx/webchat?__version__=2&enableFileAttachment=false&cliAgent=true" frameborder="0" style="width: 100%; height: 100%; border: 0;"></iframe></body></html>
+    <section class="chat-container">
+    https://copilotstudio.microsoft.com/environments/Default-d3fcb89c-9e3b-4533-a07d-fcd5dd8e7a79/bots/cre4e_talktochristophercolumbus_SXJnOx/webchat?__version__=2&enableFileAttachment=false&cliAgent=true
       </iframe>
-
     </section>
 
-    <p class="help-text">
-      If the chat does not load, refresh the page and wait a few seconds.
+    <p class="privacy-note">
       Do not write personal or sensitive information in the chat.
+      If the chat does not appear, refresh the page and wait a few seconds.
     </p>
-
   </main>
 
   <footer>
     HF &amp; VUC NORD · English learning activity
   </footer>
-
 </body>
 </html>
