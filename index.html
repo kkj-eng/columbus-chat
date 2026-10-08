@@ -13,9 +13,9 @@
 
     html,
     body {
-      margin: 0;
       width: 100%;
       min-height: 100%;
+      margin: 0;
     }
 
     body {
@@ -27,28 +27,27 @@
     .page {
       width: min(1500px, calc(100% - 24px));
       margin: 0 auto;
-      padding: 14px 0;
+      padding: 12px 0;
     }
 
     .page-header {
-      display: grid;
-      grid-template-columns: auto minmax(300px, 1fr);
-      gap: 36px;
+      display: flex;
       align-items: center;
-      padding: 6px 22px 16px;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 8px 18px 14px;
     }
 
     .page-header h1 {
       margin: 0;
-      font-size: clamp(2rem, 3.1vw, 3.4rem);
+      font-size: clamp(2rem, 3vw, 3.25rem);
       line-height: 1.05;
       letter-spacing: -0.03em;
-      white-space: nowrap;
     }
 
     .subtitle {
-      max-width: 780px;
-      margin: 0 0 0 auto;
+      max-width: 720px;
+      margin: 0;
       color: #294764;
       font-size: clamp(0.95rem, 1.25vw, 1.15rem);
       line-height: 1.4;
@@ -57,11 +56,11 @@
 
     .task-box {
       display: grid;
-      grid-template-columns: minmax(400px, 1fr) auto;
+      grid-template-columns: minmax(430px, 1fr) auto;
       gap: 20px;
       align-items: center;
       margin-bottom: 12px;
-      padding: 14px 20px;
+      padding: 14px 18px;
       border: 1px solid #d5c8ae;
       border-radius: 16px;
       background: #ffffff;
@@ -125,4 +124,158 @@
       background: #ffffff;
     }
 
-    .
+    .privacy-note {
+      margin: 6px 0 0;
+      color: #586873;
+      font-size: 0.72rem;
+      text-align: center;
+    }
+
+    footer {
+      padding: 6px 10px 0;
+      color: #52616b;
+      font-size: 0.72rem;
+      text-align: center;
+    }
+
+    @media (max-width: 1050px) {
+      .page-header {
+        display: block;
+        text-align: center;
+      }
+
+      .subtitle {
+        margin: 8px auto 0;
+        text-align: center;
+      }
+
+      .task-box {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .topics {
+        justify-content: flex-start;
+      }
+
+      .chat-container {
+        height: 650px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        width: calc(100% - 12px);
+        padding-top: 6px;
+      }
+
+      .page-header {
+        padding: 6px 8px 12px;
+      }
+
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+
+      .subtitle {
+        font-size: 0.88rem;
+      }
+
+      .task-box {
+        display: block;
+        padding: 12px;
+      }
+
+      .task-text {
+        display: block;
+      }
+
+      .task-box h2 {
+        margin-bottom: 5px;
+        white-space: normal;
+      }
+
+      .topics {
+        margin-top: 10px;
+      }
+
+      .chat-container {
+        height: 70vh;
+        min-height: 540px;
+        border-width: 2px;
+        border-radius: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <header class="page-header">
+      <h1>Talk to Christopher Columbus</h1>
+
+      <p class="subtitle">
+        Practise English by interviewing Christopher Columbus.
+        Ask questions about his life, voyages and historical perspective.
+      </p>
+    </header>
+
+    <main>
+      <section class="task-box" aria-labelledby="task-heading">
+
+        <div class="task-text">
+          <h2 id="task-heading">Your interview task</h2>
+
+          <p>
+            Ask at least 10 questions in English. Remember that Christopher
+            Columbus answers from his own historical perspective.
+          </p>
+        </div>
+
+        <div class="topics" aria-label="Suggested topics">
+          <span class="topic">Voyages</span>
+          <span class="topic">Ships</span>
+          <span class="topic">Navigation</span>
+          <span class="topic">Life at sea</span>
+          <span class="topic">The Spanish Crown</span>
+          <span class="topic">Indigenous peoples</span>
+        </div>
+
+      </section>
+
+      <section
+        id="chat-container"
+        class="chat-container"
+        aria-label="Chat with Christopher Columbus"
+      ></section>
+
+      <p class="privacy-note">
+        Do not write personal or sensitive information in the chat.
+      </p>
+    </main>
+
+    <footer>
+      HF &amp; VUC NORD · English learning activity
+    </footer>
+
+  </div>
+
+  <script>
+    const chatAddress =
+      "https://copilotstudio.microsoft.com/environments/Default-d3fcb89c-9e3b-4533-a07d-fcd5dd8e7a79/bots/cre4e_talktochristophercolumbus_SXJnOx/webchat?__version__=2&enableFileAttachment=false&cliAgent=true";
+
+    const chatFrame = document.createElement("iframe");
+
+    chatFrame.src = chatAddress;
+    chatFrame.className = "chat-frame";
+    chatFrame.title = "Talk to Christopher Columbus";
+    chatFrame.allow = "microphone";
+    chatFrame.setAttribute("frameborder", "0");
+
+    document
+      .getElementById("chat-container")
+      .appendChild(chatFrame);
+  </script>
+</body>
+</html>
