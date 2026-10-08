@@ -107,9 +107,7 @@
 
 .chat-container {
   width: 100%;
-  height: calc(100vh - 360px);
-  min-height: 440px;
-  max-height: 590px;
+  height: clamp(360px, calc(100vh - 390px), 520px);
   overflow: hidden;
   border: 3px solid #0e6275;
   border-radius: 18px;
