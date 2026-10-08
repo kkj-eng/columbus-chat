@@ -205,6 +205,26 @@
         border-radius: 14px;
       }
     }
+    .action-buttons {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.action-buttons button {
+  background: #0e6275;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.action-buttons button:hover {
+  background: #0b4f5e;
+}
   </style>
 </head>
 
@@ -248,7 +268,17 @@
         class="chat-container"
         aria-label="Chat with Christopher Columbus"
       ></section>
+<div class="action-buttons">
 
+  <button onclick="savePDF()">
+    📄 Save Conversation as PDF
+  </button>
+
+  <button onclick="window.print()">
+    🖨️ Print Conversation
+  </button>
+
+</div>
       <p class="privacy-note">
         Do not write personal or sensitive information in the chat.
       </p>
@@ -276,5 +306,14 @@
       .getElementById("chat-container")
       .appendChild(chatFrame);
   </script>
+  <script>
+function savePDF() {
+  alert(
+    "When the print window opens, choose 'Save as PDF' as the destination."
+  );
+
+  window.print();
+}
+</script>
 </body>
 </html>
