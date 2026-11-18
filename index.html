@@ -105,15 +105,15 @@
       white-space: nowrap;
     }
 
-.chat-container {
-  width: 100%;
-  height: clamp(360px, calc(100vh - 390px), 520px);
-  overflow: hidden;
-  border: 3px solid #0e6275;
-  border-radius: 18px;
-  background: #ffffff;
-  box-shadow: 0 12px 32px rgba(22, 50, 79, 0.16);
-}
+    .chat-container {
+      width: 100%;
+      height: clamp(360px, calc(100vh - 390px), 520px);
+      overflow: hidden;
+      border: 3px solid #0e6275;
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 12px 32px rgba(22, 50, 79, 0.16);
+    }
 
     .chat-frame {
       display: block;
@@ -131,189 +131,92 @@
     }
 
     footer {
-      padding: 6px 10px 0;
+      padding: 8px 10px 0;
       color: #52616b;
       font-size: 0.72rem;
       text-align: center;
     }
 
-    @media (max-width: 1050px) {
-      .page-header {
-        display: block;
-        text-align: center;
-      }
+    /* EXPORT AREA */
 
-      .subtitle {
-        margin: 8px auto 0;
-        text-align: center;
-      }
-
-      .task-box {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .topics {
-        justify-content: flex-start;
-      }
-
-      .chat-container {
-        height: 650px;
-      }
+    .conversation-export {
+      margin-top: 18px;
+      padding: 20px;
+      border: 1px solid #d5c8ae;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 6px 18px rgba(22, 50, 79, 0.08);
     }
 
-    @media (max-width: 700px) {
-      .page {
-        width: calc(100% - 12px);
-        padding-top: 6px;
-      }
-
-      .page-header {
-        padding: 6px 8px 12px;
-      }
-
-      .page-header h1 {
-        font-size: 1.8rem;
-      }
-
-      .subtitle {
-        font-size: 0.88rem;
-      }
-
-      .task-box {
-        display: block;
-        padding: 12px;
-      }
-
-      .task-text {
-        display: block;
-      }
-
-      .task-box h2 {
-        margin-bottom: 5px;
-        white-space: normal;
-      }
-
-      .topics {
-        margin-top: 10px;
-      }
-
-      .chat-container {
-        height: 70vh;
-        min-height: 540px;
-        border-width: 2px;
-        border-radius: 14px;
-      }
+    .conversation-export h2 {
+      margin: 0 0 8px;
+      color: #102f46;
     }
+
+    .conversation-export p {
+      margin-top: 5px;
+      color: #263c50;
+      line-height: 1.5;
+    }
+
+    .conversation-export label {
+      display: block;
+      margin: 14px 0 6px;
+      font-weight: bold;
+    }
+
+    .conversation-export input,
+    .conversation-export textarea {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #90a4ae;
+      border-radius: 10px;
+      color: #102f46;
+      background: #ffffff;
+      font: inherit;
+    }
+
+    .conversation-export input:focus,
+    .conversation-export textarea:focus {
+      outline: 3px solid rgba(14, 98, 117, 0.2);
+      border-color: #0e6275;
+    }
+
+    .conversation-export textarea {
+      min-height: 300px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
     .action-buttons {
-  text-align: center;
-  margin-top: 15px;
-}
+      text-align: center;
+      margin-top: 15px;
+    }
 
-.action-buttons button {
-  background: #0e6275;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 12px 20px;
-  margin: 0 5px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-}
+    .action-buttons button {
+      background: #0e6275;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 20px;
+      margin: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
 
-.action-buttons button:hover {
-  background: #0b4f5e;
-}
-  </style>
-</head>
+    .action-buttons button:hover {
+      background: #0b4f5e;
+    }
 
-<body>
-  <div class="page">
+    .action-buttons button:focus {
+      outline: 3px solid rgba(14, 98, 117, 0.3);
+      outline-offset: 2px;
+    }
 
-    <header class="page-header">
-      <h1>Talk to Christopher Columbus</h1>
-
-      <p class="subtitle">
-        Practise English by interviewing Christopher Columbus.
-        Ask questions about his life, voyages and historical perspective.
-      </p>
-    </header>
-
-    <main>
-      <section class="task-box" aria-labelledby="task-heading">
-
-        <div class="task-text">
-          <h2 id="task-heading">Your interview task</h2>
-
-          <p>
-            Ask at least 10 questions in English. Remember that Christopher
-            Columbus answers from his own historical perspective.
-          </p>
-        </div>
-
-        <div class="topics" aria-label="Suggested topics">
-          <span class="topic">Voyages</span>
-          <span class="topic">Ships</span>
-          <span class="topic">Navigation</span>
-          <span class="topic">Life at sea</span>
-          <span class="topic">The Spanish Crown</span>
-          <span class="topic">Indigenous peoples</span>
-        </div>
-
-      </section>
-
-      <section
-        id="chat-container"
-        class="chat-container"
-        aria-label="Chat with Christopher Columbus"
-      ></section>
-<div class="action-buttons">
-
-  <button onclick="savePDF()">
-    📄 Save Conversation as PDF
-  </button>
-
-  <button onclick="window.print()">
-    🖨️ Print Conversation
-  </button>
-
-</div>
-      <p class="privacy-note">
-        Do not write personal or sensitive information in the chat.
-      </p>
-    </main>
-
-    <footer>
-      HF &amp; VUC NORD · English learning activity
-    </footer>
-
-  </div>
-
-  <script>
-    const chatAddress =
-      "https://copilotstudio.microsoft.com/environments/Default-d3fcb89c-9e3b-4533-a07d-fcd5dd8e7a79/bots/cre4e_talktochristophercolumbus_SXJnOx/webchat?__version__=2&enableFileAttachment=false&cliAgent=true";
-
-    const chatFrame = document.createElement("iframe");
-
-    chatFrame.src = chatAddress;
-    chatFrame.className = "chat-frame";
-    chatFrame.title = "Talk to Christopher Columbus";
-    chatFrame.allow = "microphone";
-    chatFrame.setAttribute("frameborder", "0");
-
-    document
-      .getElementById("chat-container")
-      .appendChild(chatFrame);
-  </script>
-  <script>
-function savePDF() {
-  alert(
-    "When the print window opens, choose 'Save as PDF' as the destination."
-  );
-
-  window.print();
-}
-</script>
-</body>
-</html>
+    .export-message {
+      min-height: 1.4em;
+      margin-bottom: 0;
+      color: #a1260d;
+ 
